@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://tecxim.github.io/meus_plugins/index.html/sitemap.xml
+Sitemap: https://tecxim.github.io/shield/sitemap.xml
