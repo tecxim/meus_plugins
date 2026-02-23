@@ -365,5 +365,28 @@
         });
     </script>
 
+
+ <script>
+    const btnMobile = document.getElementById('btn-mobile');
+    const menuLinks = document.getElementById('menu-links');
+
+    btnMobile.addEventListener('click', () => {
+        // Toggle (liga/desliga) a exibição do menu
+        menuLinks.classList.toggle('hidden');
+        menuLinks.classList.toggle('flex');
+    });
+
+    // Fecha o menu automaticamente ao clicar em um link (opcional, mas recomendado)
+    const linksPagina = menuLinks.querySelectorAll('a');
+    linksPagina.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 768) {
+                menuLinks.classList.add('hidden');
+                menuLinks.classList.remove('flex');
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
