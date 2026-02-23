@@ -1,33 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>WAC Shield Ultimate PRO | Blindagem e Segurança para WordPress</title>
-    <meta name="description" content="Proteja seu WordPress contra ataques de força bruta, Geo-bloqueio de IPs estrangeiros e invasões. O WAC Shield Ultimate PRO é a defesa perimetral definitiva.">
-    <meta name="keywords" content="segurança wordpress, plugin segurança wp, bloquear ip russia, geo bloqueio wordpress, proteção força bruta, wac shield pro">
+    <title>WAC Shield Ultimate PRO | Melhor Plugin de Segurança para WordPress</title>
+    <meta name="description" content="O WAC Shield Ultimate PRO é o plugin de segurança definitivo para WordPress. Bloqueio de IP por país (Geo-Blocking), proteção contra força bruta e blindagem total contra hackers.">
+    <meta name="keywords" content="plugin de segurança wordpress, segurança wp pro, bloquear ips estrangeiros wordpress, proteção contra ataques brute force, blindagem wordpress, wac shield ultimate">
     <meta name="author" content="Wellington A. R. Cardoso">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://SEUSITE.com.br">
+    <link rel="canonical" href="https://tecxim.github.io/shield/">
 
     <meta property="og:locale" content="pt_BR">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="WAC Shield Ultimate PRO - Blindagem Cibersegura">
-    <meta property="og:description" content="Bloqueie ataques de hackers russos e chineses antes que eles toquem no seu servidor.">
-    <meta property="og:url" content="https://SEUSITE.com.br">
+    <meta property="og:title" content="WAC Shield Ultimate PRO - Blindagem Contra Ataques Hackers">
+    <meta property="og:description" content="Proteja seu site contra hackers russos e chineses. Bloqueio geográfico e defesa perimetral em um só plugin.">
+    <meta property="og:url" content="https://tecxim.github.io/shield/">
     <meta property="og:site_name" content="WAC Shield">
-    <meta property="og:image" content="https://SEUSITE.com.br/imagem-social.jpg"> <meta property="og:image:width" content="1200">
+    <meta property="og:image" content="https://tecxim.github.io/shield/imagem-social.jpg">
+    <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="WAC Shield Ultimate PRO | Segurança WordPress">
-    <meta name="twitter:description" content="Defesa perimetral contra força bruta e Geo-bloqueio.">
-    <meta name="twitter:image" content="https://SEUSITE.com.br/imagem-social.jpg">
+    <meta name="twitter:description" content="Defesa definitiva contra força bruta e Geo-bloqueio para sites WordPress.">
+    <meta name="twitter:image" content="https://tecxim.github.io/shield/imagem-social.jpg">
 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <meta name="theme-color" content="#111827"> <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta name="theme-color" content="#111827"> 
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     
     <script type="application/ld+json">
     {
@@ -36,6 +40,7 @@
       "name": "WAC Shield Ultimate PRO",
       "operatingSystem": "WordPress",
       "applicationCategory": "SecurityApplication",
+      "description": "Plugin de segurança avançado para WordPress com Geo-bloqueio e proteção anti-hacking.",
       "offers": {
         "@type": "Offer",
         "price": "97.00",
@@ -48,12 +53,11 @@
       }
     }
     </script>
-</head>
 
     <style>
         body { font-family: 'Inter', sans-serif; }
         .hero-background {
-            background-image: url('https://images.unsplash.com/photo-1550508920-53268574384d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); /* Imagem de fundo Cyber Security */
+            background-image: url('https://images.unsplash.com/photo-1550508920-53268574384d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -61,33 +65,29 @@
         .hero-background::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.95)); /* Overlay escuro */
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.98));
         }
         .glow-button {
-            box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
             transition: all 0.3s ease;
         }
         .glow-button:hover {
-            box-shadow: 0 0 25px rgba(34, 197, 94, 0.9);
+            box-shadow: 0 0 25px rgba(34, 197, 94, 0.8);
             transform: translateY(-2px);
         }
         .pricing-card {
             transition: all 0.3s ease;
-            border: 1px solid rgba(75, 85, 99, 0.4); /* Borda mais suave */
+            border: 1px solid rgba(75, 85, 99, 0.4);
         }
         .pricing-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-            border-color: #22c55e; /* Borda verde no hover */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border-color: #10b981;
         }
         .whatsapp-button {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 20px; right: 20px;
             z-index: 1000;
             background-color: #25D366;
             color: white;
@@ -101,252 +101,246 @@
             transition: all 0.3s ease;
         }
         .whatsapp-button:hover {
-            background-color: #1DA851;
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
     </style>
 </head>
+
 <body class="bg-gray-900 text-gray-100">
 
-    <nav class="bg-gray-800 p-4">
+    <nav class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50 p-4">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-white flex items-center">
-                <img src="imagens/logo.png" alt="WAC Shield Logo" class="h-10 w-10 mr-2 rounded-full"> 
-                WAC Shield <span class="text-green-400 ml-1">PRO</span>
+                <img src="imagens/logo.png" alt="WAC Shield Logo" class="h-10 w-10 mr-2 rounded-full border border-green-500"> 
+                WAC Shield <span class="text-green-500 ml-1">PRO</span>
             </a>
-            <div class="hidden md:flex space-x-4">
-                <a href="#solucao" class="hover:text-green-400">Solução</a>
-                <a href="#beneficios" class="hover:text-green-400">Benefícios</a>
-                <a href="#precos" class="hover:text-green-400">Preços</a>
-                <a href="#faq" class="hover:text-green-400">FAQ</a>
+            <div class="hidden md:flex space-x-6 font-medium">
+                <a href="#solucao" class="hover:text-green-400 transition">O Problema</a>
+                <a href="#beneficios" class="hover:text-green-400 transition">Vantagens</a>
+                <a href="#precos" class="hover:text-green-400 transition">Preços</a>
+                <a href="#faq" class="hover:text-green-400 transition">Dúvidas</a>
             </div>
         </div>
     </nav>
 
-    <section class="hero-background relative py-20 md:py-32 text-center text-white">
+    <header class="hero-background relative py-20 md:py-36 text-center text-white overflow-hidden">
         <div class="relative z-10 container mx-auto px-6">
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in">
-                PARE DE SER ALVO DE HACKERS RUSSOS E CHINESES:
-                <br><span class="text-green-400">BLINDE SEU WORDPRESS EM MINUTOS.</span>
+            <span class="bg-green-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 inline-block">Blindagem Nível Militar</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in uppercase">
+                Pare de ser alvo de ataques russos e chineses
+                <br><span class="text-green-500 italic">Blinde seu WordPress hoje.</span>
             </h1>
-            <p class="text-lg md:text-2xl mb-8 opacity-90 animate-fade-in-delay">
-                Conheça o WAC Shield Ultimate PRO – A barreira perimetral que bloqueia ataques de força bruta e acessos estrangeiros antes mesmo de tocarem no seu servidor.
+            <p class="text-lg md:text-2xl mb-10 text-gray-300 max-w-4xl mx-auto animate-fade-in" style="animation-delay: 0.2s">
+                Conheça o <strong>WAC Shield Ultimate PRO</strong> – O plugin de segurança que bloqueia ataques de força bruta e acessos estrangeiros antes mesmo de tocarem no seu servidor.
             </p>
-            <a href="#precos" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-xl glow-button animate-bounce-slow">
-                QUERO BLINDAR MEU SITE AGORA  <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+            <div class="flex flex-col md:flex-row justify-center gap-4 animate-fade-in" style="animation-delay: 0.4s">
+                <a href="#precos" class="bg-green-600 hover:bg-green-700 text-white font-extrabold py-4 px-10 rounded-lg text-xl glow-button transition-all">
+                    QUERO BLINDAR MEU SITE AGORA
+                </a>
+            </div>
+            <p class="mt-6 text-sm text-gray-400 italic"><i class="fas fa-user-shield mr-2 text-green-500"></i> Instalação rápida e configuração simplificada.</p>
         </div>
-    </section>
+    </header>
 
-    <section id="solucao" class="py-16 bg-gray-900 text-center px-6">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-green-400">Seu site está lento? Recebendo centenas de "Falhas de Login"?</h2>
-            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-6">
-                Todo site WordPress sofre ataques diários de robôs tentando adivinhar senhas. Isso não apenas coloca seus dados em risco, mas **consome toda a memória do seu servidor**, deixando o site lento para os clientes reais. Plugins comuns só avisam quando o ataque acontece.
-            </p>
-            <p class="text-xl font-semibold text-white">
-                **Nós impedimos que ele comece.**
-            </p>
-        </div>
-    </section>
-
-    <section id="beneficios" class="py-16 bg-gray-800 px-6">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-400">Como o WAC Shield Ultimate PRO protege você?</h2>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="bg-gray-700 p-8 rounded-lg shadow-xl text-center flex flex-col items-center">
-                    <i class="fas fa-globe-americas text-5xl text-blue-400 mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-4 text-white">🛡️ GeoShield Inteligente</h3>
-                    <p class="text-gray-300">Bloqueie instantaneamente acessos de países fora do Brasil. Se o seu público é brasileiro, por que deixar hackers estrangeiros tentarem logar no seu painel?</p>
-                </div>
-                <div class="bg-gray-700 p-8 rounded-lg shadow-xl text-center flex flex-col items-center">
-                    <i class="fas fa-lock text-5xl text-red-400 mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-4 text-white">⛓️ Bloqueio Progressivo</h3>
-                    <p class="text-gray-300">Errou a senha 3 vezes? O IP é banido. Persistiu no ataque? O bloqueio sobe para 24 horas. Inteligência que aprende com o agressor.</p>
-                </div>
-                <div class="bg-gray-700 p-8 rounded-lg shadow-xl text-center flex flex-col items-center">
-                    <i class="fas fa-tachometer-alt text-5xl text-green-400 mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-4 text-white">⚡ Ultra Performance</h3>
-                    <p class="text-gray-300">Diferente de plugins pesados, o WAC Shield é leve. Ele roda antes do WordPress carregar funções pesadas, economizando seu processamento e mantendo seu site rápido.</p>
+    <main>
+        <section id="solucao" class="py-20 bg-gray-900 text-center px-6 border-b border-gray-800">
+            <div class="container mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white uppercase tracking-tight">Seu site está lento ou recebendo <span class="text-red-500">falhas de login</span>?</h2>
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-lg md:text-xl text-gray-400 mb-8 leading-relaxed">
+                        Sites WordPress sofrem tentativas de invasão a cada segundo. Robôs tentam adivinhar sua senha, o que **consome a memória do seu servidor**, derruba o site e compromete seus dados. Plugins comuns avisam quando você já foi atacado.
+                    </p>
+                    <p class="text-2xl font-bold text-green-400 border-2 border-green-500/30 inline-block px-8 py-4 rounded-xl">
+                        O WAC Shield impede o ataque antes de começar.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="py-16 bg-gray-900 px-6">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-green-400">Veja o WAC Shield em Ação!</h2>
-            <p class="text-lg text-gray-300 mb-8 max-w-4xl mx-auto">
-                Nosso sistema de inteligência em nuvem registra e monitora todas as tentativas de ataque em tempo real. Veja abaixo a prova da nossa eficácia, com milhares de invasões bloqueadas diariamente!
-            </p>
-            <div class="bg-gray-800 p-6 rounded-lg shadow-2xl overflow-hidden">
-                <img src="imagens/imagem_log.webp" alt="Log de Ataques Bloqueados pelo WAC Shield" class="w-full h-auto rounded-lg border border-gray-700">
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 bg-gray-800 px-6">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-green-400">Para quem o WAC Shield é <span class="text-white">essencial</span>?</h2>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="p-6 rounded-lg bg-gray-700 shadow-lg flex flex-col items-center">
-                    <i class="fas fa-users-cog text-5xl text-purple-400 mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-3 text-white">Donos de Agências</h3>
-                    <p class="text-gray-300">Proteja todos os seus clientes em uma única central e elimine chamados de suporte por invasão.</p>
-                </div>
-                <div class="p-6 rounded-lg bg-gray-700 shadow-lg flex flex-col items-center">
-                    <i class="fas fa-rocket text-5xl text-yellow-400 mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-3 text-white">Infoprodutores</h3>
-                    <p class="text-gray-300">Garanta que seu lançamento não saia do ar por um ataque de negação de serviço (DoS).</p>
-                </div>
-                <div class="p-6 rounded-lg bg-gray-700 shadow-lg flex flex-col items-center">
-                    <i class="fas fa-shopping-cart text-5xl text-red-400 mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-3 text-white">E-commerces</h3>
-                    <p class="text-gray-300">Proteja os dados dos seus clientes, mantenha a loja online 24/7 e garanta a velocidade nas vendas.</p>
+        <section id="beneficios" class="py-20 bg-gray-800 px-6">
+            <div class="container mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white uppercase">Tecnologia de <span class="text-green-500">Proteção Perimetral</span></h2>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <article class="bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-700 hover:border-green-500 transition-colors">
+                        <i class="fas fa-globe-americas text-5xl text-blue-500 mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-4 text-white">GeoShield Ativo</h3>
+                        <p class="text-gray-400">Bloqueie instantaneamente acessos de qualquer país. Se o seu público é do Brasil, impeça que Rússia, China e outros países sequer carreguem seu site.</p>
+                    </article>
+                    <article class="bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-700 hover:border-green-500 transition-colors">
+                        <i class="fas fa-user-lock text-5xl text-red-500 mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Anti-Brute Force</h3>
+                        <p class="text-gray-400">Sistema inteligente que bane IPs após erros consecutivos. O bloqueio é progressivo: quanto mais tentam, maior o tempo de banimento.</p>
+                    </article>
+                    <article class="bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-700 hover:border-green-500 transition-colors">
+                        <i class="fas fa-bolt text-5xl text-green-500 mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Plugin Ultra Leve</h3>
+                        <p class="text-gray-400">Diferente de outros plugins, o WAC Shield roda antes do WordPress carregar o banco de dados, economizando CPU e mantendo o site veloz.</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="precos" class="py-16 bg-gray-900 px-6">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-400">Escolha o seu plano de blindagem</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="pricing-card bg-gray-800 p-8 rounded-lg shadow-xl text-center flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4 text-white">Starter (1 Site)</h3>
-                        <p class="text-5xl font-extrabold text-green-400 mb-4">R$ 97<span class="text-xl font-normal text-gray-400">/ano</span></p>
-                        <p class="text-gray-300 mb-6">Ideal para empreendedores, blogs e pequenos sites.</p>
-                        <ul class="text-left text-gray-300 space-y-3 mb-8">
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i> Licença para 1 domínio</li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i> Proteção GeoShield e Anti-Brute Force</li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i> Suporte via e-mail</li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i> Atualizações de segurança</li>
-                            <li class="text-gray-500"><i class="fas fa-times-circle text-gray-600 mr-2"></i> Relatório Consolidado de Ataques (Ideal para Revenda)</li>
-                            <li class="text-gray-500"><i class="fas fa-times-circle text-gray-600 mr-2"></i> Gestão de Frota</li>
-                        </ul>
+        <section class="py-20 bg-gray-900 px-6">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white uppercase italic">Evidência em Tempo Real</h2>
+                <p class="text-lg text-gray-400 mb-10 max-w-3xl mx-auto">
+                    Nosso sistema de inteligência monitora ameaças globais e as bloqueia silenciosamente. Veja o log de um site padrão WordPress:
+                </p>
+                <div class="bg-gray-800 p-4 rounded-2xl shadow-2xl border border-gray-700 inline-block w-full max-w-5xl">
+                    <img src="imagens/imagem_log.webp" alt="Log de ataques bloqueados pelo plugin de segurança WAC Shield" class="w-full h-auto rounded-lg">
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-800 px-6">
+            <div class="container mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white uppercase">Para quem é <span class="underline decoration-green-500">indispensável</span>?</h2>
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="text-center group">
+                        <div class="w-20 h-20 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-500 transition">
+                            <i class="fas fa-building text-3xl text-purple-400 group-hover:text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Agências e Freelancers</h3>
+                        <p class="text-gray-400">Proteja a carteira de clientes e evite o estresse de sites invadidos ou infectados.</p>
                     </div>
-                    <a href="https://mpago.la/1u65wB6" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg mt-auto glow-button">
-                        ESCOLHER STARTER <i class="fas fa-shield-alt ml-2"></i>
-                    </a>
-                </div>
-
-                <div class="pricing-card bg-gray-800 p-8 rounded-lg shadow-xl text-center flex flex-col justify-between border-2 border-green-500 relative">
-                    <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Mais Popular</span>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4 text-white">Professional (5 Sites)</h3>
-                        <p class="text-5xl font-extrabold text-green-400 mb-4">R$ 247<span class="text-xl font-normal text-gray-400">/ano</span></p>
-                        <p class="text-gray-300 mb-6">Ideal para pequenos negócios e infoprodutores com múltiplos projetos.</p>
-                        <ul class="text-left text-gray-300 space-y-3 mb-8">
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i> Licença para <span class="font-bold">5 domínios</span></li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i> Proteção GeoShield e Anti-Brute Force</li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i> Suporte <span class="font-bold">Prioritário</span></li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i> Atualizações de segurança</li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i> Painel de controle central</li>
-                            <li class="text-gray-500"><i class="fas fa-times-circle text-gray-600 mr-2"></i> Gestão de Frota</li>
-                        </ul>
+                    <div class="text-center group">
+                        <div class="w-20 h-20 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-500 transition">
+                            <i class="fas fa-rocket text-3xl text-yellow-400 group-hover:text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Infoprodutores</h3>
+                        <p class="text-gray-400">Não deixe seu site cair em pleno dia de lançamento por ataques de negação de serviço.</p>
                     </div>
-                    <a href="https://mpago.la/2uYbHr8" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg mt-auto glow-button">
-                        ESCOLHER PROFESSIONAL <i class="fas fa-shield-alt ml-2"></i>
-                    </a>
-                </div>
-
-                <div class="pricing-card bg-gray-800 p-8 rounded-lg shadow-xl text-center flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4 text-white">Agency (Até 50 Sites)</h3>
-                        <p class="text-5xl font-extrabold text-green-400 mb-4">R$ 497<span class="text-xl font-normal text-gray-400">/ano</span></p>
-                        <p class="text-gray-300 mb-6">Feito para agências de marketing e web design com grande carteira de clientes.</p>
-                        <ul class="text-left text-gray-300 space-y-3 mb-8">
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i> Licença para <span class="font-bold">até 50 domínios</span></li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i> Proteção GeoShield e Anti-Brute Force</li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i> Suporte <span class="font-bold">VIP 24h</span></li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i> Atualizações de segurança</li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i> Painel de controle central</li>
-                            <li><i class="fas fa-check-circle text-green-400 mr-2"></i> <span class="font-bold">Gestão de Frota</span> de Sites</li>
-                        </ul>
+                    <div class="text-center group">
+                        <div class="w-20 h-20 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-red-500 transition">
+                            <i class="fas fa-shopping-bag text-3xl text-red-400 group-hover:text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">E-commerces (WooCommerce)</h3>
+                        <p class="text-gray-400">Segurança absoluta para os dados dos seus clientes e estabilidade para suas vendas.</p>
                     </div>
-                    <a href="https://mpago.la/1UPoVKu" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg mt-auto glow-button">
-                        ESCOLHER AGENCY <i class="fas fa-shield-alt ml-2"></i>
-                    </a>
                 </div>
             </div>
-            <p class="text-center text-gray-400 text-sm mt-12">
-                *O plano Agency suporta até 50 domínios ativos simultaneamente. Para mais de 50, entre em contato para um plano personalizado.
-            </p>
-        </div>
-    </section>
+        </section>
 
-    <section class="py-16 bg-gray-800 px-6">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-green-400">O que nossos clientes dizem</h2>
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="bg-gray-700 p-6 rounded-lg shadow-xl">
-                    <p class="italic text-gray-300 mb-4">"Depois do WAC Shield, meu site parou de travar. É incrível ver como ele bloqueia os ataques silenciosamente."</p>
-                    
-                </div>
-                <div class="bg-gray-700 p-6 rounded-lg shadow-xl">
-                    <p class="italic text-gray-300 mb-4">"Para minha agência, foi um divisor de águas. Reduzimos os chamados de suporte em 80% por problemas de segurança."</p>
-                    
+        <section id="precos" class="py-20 bg-gray-900 px-6">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4 text-white">PLANOS DE BLINDAGEM</h2>
+                <p class="text-center text-gray-400 mb-16">Investimento único anual para paz de espírito total.</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="pricing-card bg-gray-800 p-8 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Starter</h3>
+                            <span class="text-gray-500 block mb-6 italic">Para 1 Domínio</span>
+                            <p class="text-5xl font-extrabold text-green-500 mb-8">R$ 97<span class="text-xl font-normal text-gray-400">/ano</span></p>
+                            <ul class="text-left text-gray-400 space-y-4 mb-8">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i> GeoShield Inteligente</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i> Proteção Anti-Brute Force</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i> Suporte via E-mail</li>
+                                <li><i class="fas fa-times text-gray-600 mr-2"></i> Painel Multi-site</li>
+                            </ul>
+                        </div>
+                        <a href="https://mpago.la/1u65wB6" class="w-full bg-transparent border-2 border-green-500 hover:bg-green-500 text-white font-bold py-3 rounded-xl transition uppercase">Comprar Starter</a>
+                    </div>
+
+                    <div class="pricing-card bg-gray-800 p-8 rounded-2xl flex flex-col justify-between border-2 border-green-500 relative transform scale-105">
+                        <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-500 text-black text-xs font-black px-4 py-1 rounded-full uppercase">Melhor Custo-Benefício</span>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 text-white">Professional</h3>
+                            <span class="text-gray-500 block mb-6 italic">Para até 5 Domínios</span>
+                            <p class="text-5xl font-extrabold text-green-500 mb-8">R$ 247<span class="text-xl font-normal text-gray-400">/ano</span></p>
+                            <ul class="text-left text-gray-300 space-y-4 mb-8">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i> Todas as proteções PRO</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i> <strong>Suporte Prioritário</strong></li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i> Licença para 5 Sites</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i> Painel de Gestão</li>
+                            </ul>
+                        </div>
+                        <a href="https://mpago.la/2uYbHr8" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl transition shadow-lg uppercase">Comprar Professional</a>
+                    </div>
+
+                    <div class="pricing-card bg-gray-800 p-8 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 text-white">Agency</h3>
+                            <span class="text-gray-500 block mb-6 italic">Até 50 Domínios</span>
+                            <p class="text-5xl font-extrabold text-green-500 mb-8">R$ 497<span class="text-xl font-normal text-gray-400">/ano</span></p>
+                            <ul class="text-left text-gray-400 space-y-4 mb-8">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i> Licença para 50 sites</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i> <strong>Gestão de Frota</strong></li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i> Suporte VIP 24h</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i> White Label Opcional</li>
+                            </ul>
+                        </div>
+                        <a href="https://mpago.la/1UPoVKu" class="w-full bg-transparent border-2 border-green-500 hover:bg-green-500 text-white font-bold py-3 rounded-xl transition uppercase">Comprar Agency</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="faq" class="py-16 bg-gray-900 px-6">
-        <div class="container mx-auto max-w-3xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-400">Dúvidas Frequentes</h2>
-            <div class="space-y-6">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                    <details>
-                        <summary class="text-xl font-semibold text-white cursor-pointer hover:text-green-400">O plugin WAC Shield deixa meu site lento?</summary>
-                        <p class="text-gray-300 mt-4">Não! Ele é focado em performance e roda rotinas de limpeza diárias para manter o banco de dados leve. O bloqueio acontece antes do WordPress carregar, otimizando seus recursos.</p>
+        <section id="faq" class="py-20 bg-gray-800 px-6">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white uppercase italic">Perguntas Frequentes</h2>
+                <div class="space-y-4">
+                    <details class="bg-gray-900 p-6 rounded-xl border border-gray-700 cursor-pointer group">
+                        <summary class="text-lg font-bold text-white list-none flex justify-between items-center group-open:text-green-500 transition">
+                            O plugin WAC Shield deixa meu site lento?
+                            <i class="fas fa-chevron-down text-sm"></i>
+                        </summary>
+                        <p class="text-gray-400 mt-4 leading-relaxed">Não. Ele foi desenvolvido com foco em performance extrema. O bloqueio ocorre no nível do <code>init</code> do WordPress, poupando recursos do servidor que seriam gastos processando um login falso.</p>
                     </details>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                    <details>
-                        <summary class="text-xl font-semibold text-white cursor-pointer hover:text-green-400">E se eu esquecer minha senha e for bloqueado?</summary>
-                        <p class="text-gray-300 mt-4">Você pode acessar via outro IP (celular 4G, por exemplo), ou solicitar o desbloqueio manual através da whitelist no painel administrativo do plugin. Se precisar, nosso suporte te ajuda.</p>
+                    <details class="bg-gray-900 p-6 rounded-xl border border-gray-700 cursor-pointer group">
+                        <summary class="text-lg font-bold text-white list-none flex justify-between items-center group-open:text-green-500 transition">
+                            E se eu for bloqueado por engano?
+                            <i class="fas fa-chevron-down text-sm"></i>
+                        </summary>
+                        <p class="text-gray-400 mt-4 leading-relaxed">Você pode facilmente adicionar seu IP à Whitelist. Caso seja bloqueado por errar a senha, basta trocar a rede (usar o 4G) ou acessar o banco de dados via hospedagem conforme ensinamos na documentação.</p>
                     </details>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                    <details>
-                        <summary class="text-xl font-semibold text-white cursor-pointer hover:text-green-400">Como recebo o plugin e a documentação?</summary>
-                        <p class="text-gray-300 mt-4">O envio do arquivo .ZIP do plugin e da documentação técnica (PDF) é imediato após a confirmação do pagamento, direto para o seu e-mail cadastrado.</p>
-                    </details>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                    <details>
-                        <summary class="text-xl font-semibold text-white cursor-pointer hover:text-green-400">Preciso de conhecimentos técnicos para instalar?</summary>
-                        <p class="text-gray-300 mt-4">Não! A instalação é simples, como qualquer outro plugin WordPress. Além disso, fornecemos um passo a passo detalhado na documentação. Se precisar, podemos auxiliar na primeira instalação (consulte taxa).</p>
+                    <details class="bg-gray-900 p-6 rounded-xl border border-gray-700 cursor-pointer group">
+                        <summary class="text-lg font-bold text-white list-none flex justify-between items-center group-open:text-green-500 transition">
+                            Como recebo o acesso?
+                            <i class="fas fa-chevron-down text-sm"></i>
+                        </summary>
+                        <p class="text-gray-400 mt-4 leading-relaxed">O envio é imediato e automático. Assim que o pagamento é aprovado, você recebe o arquivo <strong>.zip</strong> do plugin e o guia de instalação PDF no seu e-mail.</p>
                     </details>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer class="bg-gray-800 py-8 text-center text-gray-400">
+    <footer class="bg-gray-900 border-t border-gray-800 py-12 text-center text-gray-500">
         <div class="container mx-auto px-6">
-            <p>&copy; 2023 WAC Shield Ultimate PRO. Todos os direitos reservados.</p>
-            <p class="mt-2">Desenvolvido por <span class="text-green-400 font-bold">Wellington A. R. Cardoso</span></p>
-            <div class="flex justify-center space-x-4 mt-4">
-                <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+            <p class="mb-2 font-bold text-white">WAC Shield Ultimate PRO &copy; 2026</p>
+            <p>Desenvolvido com excelência por <span class="text-green-500 font-bold">Wellington A. R. Cardoso</span></p>
+            <div class="flex justify-center space-x-6 mt-6">
+                <a href="#" class="hover:text-green-500 transition"><i class="fab fa-facebook-f text-xl"></i></a>
+                <a href="#" class="hover:text-green-500 transition"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="hover:text-green-500 transition"><i class="fab fa-linkedin-in text-xl"></i></a>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/5511999402929?text=Olá!%20Tenho%20interesse%20no%20WAC%20Shield%20PRO." target="_blank" class="whatsapp-button">
+    <a href="https://wa.me/5511999402929?text=Olá!%20Tenho%20interesse%20no%20WAC%20Shield%20PRO." target="_blank" class="whatsapp-button" aria-label="Fale conosco pelo WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        document.addEventListener('contextmenu', event => event.preventDefault()); // Bloqueia botão direito
-        document.onkeydown = function(e) { // Bloqueia Ctrl+U, Ctrl+S, F12
+        // Bloqueio básico de inspeção (Uso moderado para evitar problemas de UX)
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.onkeydown = function(e) {
             if (e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83))) {
                 return false;
             }
         };
+
+        // Smooth Scroll para navegadores antigos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 
 </body>
