@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guide - WAC Shield PRO</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background: #f4f7f9; }
+        .card { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-top: 5px solid #2271b1; }
+        h1 { color: #2271b1; display: flex; align-items: center; }
+        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; color: #2c3e50; margin-top: 30px; }
+        .badge { background: #2ecc71; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8em; margin-left: 10px; }
+        .warning { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0; }
+        code { background: #f0f0f0; padding: 2px 5px; border-radius: 3px; font-family: monospace; }
+        .footer { text-align: center; margin-top: 40px; font-size: 0.9em; color: #777; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>🛡️ WAC Shield PRO <span class="badge">v3.0.9</span></h1>
+    <p>Developed by <strong>WAC Security Solutions</strong></p>
+
+    <h2>1. Quick Installation on WordPress</h2>
+    <ol>
+        <li>Go to <strong>Plugins > Add New</strong> in your WordPress dashboard.</li>
+        <li>Upload the <code>wac-shield-pro.zip</code> file.</li>
+        <li>Activate the plugin and find the <strong>WAC Shield</strong> menu in the sidebar.</li>
+    </ol>
+
+    <h2>2. Defense Settings</h2>
+    <ul>
+        <li><strong>Geo-Block:</strong> Choose the authorized country (e.g., USA).</li>
+        <li><strong>Brute Force:</strong> Set the maximum login attempts (Recommended: 3).</li>
+        <li><strong>Base Ban Duration:</strong> Set the initial lockout interval (Recommended: <strong>15 minutes</strong>). The duration increases automatically with each repeated attempt.</li>
+    </ul>
+
+    <div class="warning">
+        <strong>⚠️ ATTENTION:</strong> Always add your current IP address or authorized users to the <strong>Whitelist</strong> to prevent accidental lockouts.
+    </div>
+
+    <h2>3. Smart Updates</h2>
+    <p>Whenever <strong>WAC Security Solutions</strong> releases a new security layer, you will be notified. To ensure you are running the most secure version, follow these steps:</p>
+    
+    <ul style="list-style-type: none; padding-left: 0;">
+        <li style="margin-bottom: 10px;">✅ <strong>Automatic Alert:</strong> A notification will appear in your <strong>Plugins</strong> list. Simply click <strong>"Update Now"</strong>.</li>
+        <li style="margin-bottom: 10px;">🔍 <strong>Manual Check:</strong> If a new version was released but hasn't appeared yet, go to <strong>Dashboard > Updates</strong>.</li>
+        <li style="margin-bottom: 10px;">🔄 <strong>Force Search:</strong> Click the <strong>"Check Again"</strong> button. This clears the WordPress cache and forces a connection to our security cloud.</li>
+        <li style="margin-bottom: 10px;">📦 <strong>Plugin List:</strong> Scroll down to the plugin list, select <strong>WAC Shield PRO</strong>, and click <strong>"Update Plugins"</strong>.</li>
+    </ul>
+
+    <div style="background: #e7f3ff; border-left: 4px solid #2271b1; padding: 15px; margin-top: 20px;">
+        💡 <strong>Pro Tip:</strong> Keeping your plugin updated ensures that your blocked IP lists and defense algorithms are always synchronized with the latest threats.
+    </div>
+
+<div class="footer">
+    © 2026 WAC Security Solutions | <a href="https://tecxim.github.io/shield">Official Support</a>
+</div>
+
+</body>
+</html>
