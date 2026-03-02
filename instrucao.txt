@@ -1,0 +1,6 @@
+O que estamos monitorando (Resumo):
+Cloud Bridge: Testa se o seu servidor na Cloudflare está vivo e recebendo visitas. (É o "pulso" do sistema).
+
+Repo Server (antigo GitHub): Testa se o Worker consegue acessar os arquivos do plugin usando seu Token. (É a garantia de que o download vai funcionar).
+
+Core Engine (Worker Status): Testa se a lógica do código está processando dados corretamente. (É o "cérebro" do sistema).
