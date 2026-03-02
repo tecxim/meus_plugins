@@ -1,130 +1,112 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>System Status - WAC Security</title>
-    <style>
-        body { font-family: sans-serif; background: #f4f7f9; text-align: center; padding: 50px; }
-        .status-card { background: white; padding: 30px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 5px solid #2ecc71; }
-        .service { display: flex; justify-content: space-between; width: 300px; margin: 15px 0; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .online { color: #2ecc71; font-weight: bold; }
-        .pulse { height: 10px; width: 10px; background-color: #2ecc71; border-radius: 50%; display: inline-block; box-shadow: 0 0 0 rgba(46, 204, 113, 0.4); animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); } 100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); } }
-    </style>
-</head>
-<body>
-   <div class="status-card">
-    <h2>🛡️ WAC Security Status</h2>
-
-    <div class="service">
-        <span>Cloud Bridge API</span>
-        <span id="bridge-status" class="online"><span class="pulse"></span> Operational</span>
-    </div>
-    <div id="bridge-error" class="error-msg">
-        ⚠️ Instabilidade na API. Nossa equipe técnica já foi notificada.
-    </div>
-
-    <div class="service">
-        <span>Update Server (GitHub)</span>
-        <span id="github-status" class="online">Connected</span>
-    </div>
-    <div id="github-error" class="error-msg">
-        ⚠️ O GitHub está instável. Tente atualizar seu plugin mais tarde.
-    </div>
-
-    <div class="service">
-        <span>Geo-IP Database</span>
-        <span id="geo-status" class="online">Updated</span>
-    </div>
-
-    <p style="font-size: 0.8em; color: #777; margin-top: 20px;">
-        Última verificação: <span id="time"></span>
-    </p>
-</div>
+<meta charset="UTF-8">
+<title>WAC Security - Status</title>
 
 <style>
-    /* Estilos Adicionais para Mensagens de Erro */
-    .error-msg {
-        display: none; /* Escondido por padrão */
-        color: #e74c3c;
-        font-size: 0.75em;
-        text-align: left;
-        margin-top: -10px;
-        margin-bottom: 15px;
-        padding-left: 5px;
-        border-left: 2px solid #e74c3c;
-    }
-    
-    .status-card { 
-        background: white; 
-        padding: 30px; 
-        border-radius: 10px; 
-        display: inline-block; 
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-        border-top: 5px solid #2ecc71; 
-        min-width: 320px;
-    }
+body {
+    font-family: Arial;
+    background: #0f172a;
+    color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+.container {
+    width: 420px;
+}
+.card {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.service {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.status {
+    font-weight: bold;
+}
+.online { color: #22c55e; }
+.offline { color: #ef4444; }
 
-    .service { 
-        display: flex; 
-        justify-content: space-between; 
-        align-items: center;
-        width: 100%; 
-        margin: 15px 0; 
-        border-bottom: 1px solid #eee; 
-        padding-bottom: 5px; 
-    }
+.history {
+    display: flex;
+    gap: 4px;
+    margin-top: 10px;
+}
+.bar {
+    width: 8px;
+    height: 20px;
+    border-radius: 2px;
+}
+.bar.ok { background: #22c55e; }
+.bar.fail { background: #ef4444; }
 
-    .online { color: #2ecc71; font-weight: bold; display: flex; align-items: center; gap: 8px; }
-
-    .pulse { 
-        height: 10px; width: 10px; background-color: #2ecc71; border-radius: 50%; 
-        display: inline-block; animation: pulse 2s infinite; 
-    }
-
-    @keyframes pulse { 
-        0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); } 
-        70% { box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); } 
-        100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); } 
-    }
+.small {
+    font-size: 12px;
+    color: #94a3b8;
+}
 </style>
 
+</head>
+
+<body>
+<div class="container">
+
+<div class="card">
+    <h2>🛡️ WAC Security</h2>
+
+```
+<div class="service">
+    <span>Cloud Bridge</span>
+    <span id="bridge" class="status">...</span>
+</div>
+
+<div class="service">
+    <span>GitHub</span>
+    <span id="github" class="status">...</span>
+</div>
+
+<div class="small">
+    Última verificação: <span id="time"></span>
+</div>
+```
+
+</div>
+
+<div class="card">
+    <strong>Uptime (sessão atual)</strong>
+    <div id="uptime">0%</div>
+
+```
+<div class="history" id="history"></div>
+```
+
+</div>
+
+</div>
+
 <script>
-    async function checkWACStatus() {
-        document.getElementById('time').innerText = new Date().toLocaleString();
+let checks = [];
 
-        // --- TESTE 1: CLOUD BRIDGE (API) ---
-        try {
-            // No seu status.html (JavaScript)
-            const bridgeRes = await fetch('https://wac-shield-bridge.suportewrsystems.workers.dev/ping');
+function setStatus(id, ok, label) {
+    const el = document.getElementById(id);
+    el.className = "status " + (ok ? "online" : "offline");
+    el.innerText = label;
+}
 
-            if (!bridgeRes.ok) throw new Error();
-            // Se o fetch não der erro, consideramos online
-            document.getElementById('bridge-status').innerHTML = '<span class="pulse"></span> Operational';
-            document.getElementById('bridge-error').style.display = 'none';
-        } catch (e) {
-            document.getElementById('bridge-status').style.color = '#e74c3c';
-            document.getElementById('bridge-status').innerText = 'Offline';
-            document.getElementById('bridge-error').style.display = 'block';
-        }
+function addHistory(ok) {
+    checks.push(ok);
+    if (checks.length > 30) checks.shift();
 
-        // --- TESTE 2: GITHUB (SERVER) ---
-        try {
-            const githubRes = await fetch('https://api.github.com/zen');
-            if(githubRes.ok) {
-                document.getElementById('github-status').style.color = '#2ecc71';
-                document.getElementById('github-status').innerText = 'Connected';
-                document.getElementById('github-error').style.display = 'none';
-            } else { throw new Error(); }
-        } catch (e) {
-            document.getElementById('github-status').style.color = '#e74c3c';
-            document.getElementById('github-status').innerText = 'Slow/Issues';
-            document.getElementById('github-error').style.display = 'block';
-        }
-    }
-
-    // Executa a checagem
-    checkWACStatus();
-</script>
-</body>
-</html>
+    const historyEl = document.getElementById("history");
+    his
