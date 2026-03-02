@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <title>WAC Security - Status</title>
-
 <style>
 body {
     font-family: Arial;
@@ -30,7 +28,6 @@ h2 { text-align: center; margin-bottom: 20px; }
 .status { font-weight: bold; }
 .online { color: #22c55e; }
 .offline { color: #ef4444; }
-
 .history {
     display: flex;
     gap: 4px;
@@ -43,34 +40,33 @@ h2 { text-align: center; margin-bottom: 20px; }
 }
 .bar.ok { background: #22c55e; }
 .bar.fail { background: #ef4444; }
-
 .small { font-size: 12px; color: #94a3b8; }
 </style>
-
 </head>
-
 <body>
 <div class="container">
 
 <div class="card">
     <h2>🛡️ WAC Security</h2>
 
-```
-<div class="service">
-    <span>Cloud Bridge</span>
-    <span id="bridge" class="status">...</span>
-</div>
+    <div class="service">
+        <span>Cloud Bridge</span>
+        <span id="bridge" class="status">...</span>
+    </div>
 
-<div class="service">
-    <span>GitHub</span>
-    <span id="github" class="status">...</span>
-</div>
+    <div class="service">
+        <span>GitHub</span>
+        <span id="github" class="status">...</span>
+    </div>
 
-<div class="small">
-    Última verificação: <span id="time"></span>
-</div>
-```
+    <div class="service">
+        <span>Worker Status</span>
+        <span id="worker" class="status">...</span>
+    </div>
 
+    <div class="small">
+        Última verificação: <span id="time"></span>
+    </div>
 </div>
 
 <div class="card">
@@ -139,12 +135,22 @@ async function check() {
         ok = false;
     }
 
+    // WORKER STATUS
+    try {
+        const res = await timeoutFetch("https://wac-shield-bridge.suportewrsystems.workers.dev/status");
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        setStatus("worker", data.status === "online", data.status === "online" ? "Online" : "Offline");
+    } catch {
+        setStatus("worker", false, "Offline");
+        ok = false;
+    }
+
     addHistory(ok);
 }
 
 check();
 setInterval(check, 30000);
 </script>
-
 </body>
 </html>
