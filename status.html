@@ -14,27 +14,20 @@ body {
     justify-content: center;
     padding: 40px;
 }
-.container {
-    width: 420px;
-}
+.container { width: 420px; }
 .card {
     background: #1e293b;
     padding: 25px;
     border-radius: 12px;
     margin-bottom: 20px;
 }
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
+h2 { text-align: center; margin-bottom: 20px; }
 .service {
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
 }
-.status {
-    font-weight: bold;
-}
+.status { font-weight: bold; }
 .online { color: #22c55e; }
 .offline { color: #ef4444; }
 
@@ -51,10 +44,7 @@ h2 {
 .bar.ok { background: #22c55e; }
 .bar.fail { background: #ef4444; }
 
-.small {
-    font-size: 12px;
-    color: #94a3b8;
-}
+.small { font-size: 12px; color: #94a3b8; }
 </style>
 
 </head>
@@ -86,11 +76,7 @@ h2 {
 <div class="card">
     <strong>Uptime (sessão atual)</strong>
     <div id="uptime">0%</div>
-
-```
-<div class="history" id="history"></div>
-```
-
+    <div class="history" id="history"></div>
 </div>
 
 </div>
@@ -100,13 +86,4 @@ let checks = [];
 
 function setStatus(id, ok, label) {
     const el = document.getElementById(id);
-    el.className = "status " + (ok ? "online" : "offline");
-    el.innerText = label;
-}
-
-function addHistory(ok) {
-    checks.push(ok);
-    if (checks.length > 30) checks.shift();
-
-    const historyEl = document.getElementById("history");
-    his
+    el.className = "status " + (ok ? "online" : "offline"
