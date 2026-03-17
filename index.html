@@ -966,12 +966,153 @@
 ======================== -->
 <div id="wac-chat-container" data-loja="loja"></div>
 <script>
-  (function() {
-      const wacScript = document.createElement('script');
-      wacScript.src = "https://wac-ai-site.suportewrsystems.workers.dev/wac-widget.js";
-      wacScript.async = true;
-      document.body.appendChild(wacScript);
-  })();
+(function() {
+    // --- Criar host e shadow DOM ---
+    const host = document.createElement('div');
+    host.id = 'wac-chat-widget';
+    document.body.appendChild(host);
+    const shadow = host.attachShadow({ mode: 'closed' });
+
+    // --- CSS do widget ---
+    const style = document.createElement('style');
+    style.textContent = `
+        :host { all: initial; }
+        #wac-wrapper { position: fixed; bottom: 20px; right: 20px; font-family: 'Inter', Arial, sans-serif; z-index: 999999; display: flex; flex-direction: column; align-items: flex-end; }
+        #wac-window { display: none; width: clamp(320px,90vw,400px); height:600px; background:#fff; border-radius:16px; flex-direction:column; box-shadow:0 10px 40px rgba(0,0,0,0.2); margin-bottom:15px; overflow:hidden; border:1px solid #e5e7eb; transition:all 0.3s ease; }
+        #wac-header { background:#22C55E; color:white; padding:15px; font-weight:800; font-size:14px; display: flex; justify-content: space-between; align-items: center; }
+        #wac-header-menu { cursor: pointer; font-size: 18px; }
+        #wac-messages { flex:1; padding:15px; overflow-y:auto; background:#f9fafb; display:flex; flex-direction:column; gap:10px; }
+        .wac-msg { padding:12px 16px; border-radius:12px; max-width:90%; font-size:15px; line-height:1.5; white-space: pre-wrap; }
+        .user { background:#22C55E; color:white; align-self:flex-end; }
+        .bot { background:#e5e7eb; color:#1f2937; align-self:flex-start; }
+        .bot strong { color: #22C55E; }
+        #wac-input-area { padding:12px; border-top:1px solid #f3f4f6; display:flex; gap:8px; background:white; }
+        #wac-input { flex:1; border:1px solid #d1d5db; padding:10px; border-radius:8px; outline:none; font-size:14px; color:#000; background:#fff; }
+        #wac-send { background:#22C55E; border:none; color:white; padding:0 15px; border-radius:8px; cursor:pointer; font-weight:bold; font-size:16px; }
+        #wac-send:hover { background: #16a34a; }
+        #wac-button { width:60px; height:60px; background:#22C55E; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 15px rgba(34,197,94,0.4); transition:transform 0.2s; }
+        #wac-button:hover { transform: scale(1.05); }
+        #wac-button img { width:30px; height:30px; }
+        .wac-timestamp { font-size: 10px; color: #999; margin-top: 4px; text-align: right; }
+        .wac-whatsapp-btn { display: inline-block; background: #25D366; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; margin: 5px 0; font-weight: bold; }
+        .wac-whatsapp-btn:hover { background: #128C7E; }
+        .wac-error { color: #dc2626; font-weight: bold; }
+    `;
+
+    // --- HTML do widget ---
+    const wrapper = document.createElement('div');
+    wrapper.id = 'wac-wrapper';
+    wrapper.innerHTML = `
+        <div id="wac-window">
+            <div id="wac-header">
+                <span>WAC SHIELD - ASSISTENTE</span>
+                <span id="wac-header-menu">☰</span>
+            </div>
+            <div id="wac-messages"></div>
+            <div id="wac-input-area">
+                <input type="text" id="wac-input" placeholder="Digite sua dúvida...">
+                <button id="wac-send">→</button>
+            </div>
+        </div>
+        <div id="wac-button">
+            <img src="https://tecxim.github.io/shield/imagens/logo.png" alt="Chat">
+        </div>
+    `;
+
+    shadow.appendChild(style);
+    shadow.appendChild(wrapper);
+
+    // --- Seletores ---
+    const btn = shadow.getElementById('wac-button');
+    const win = shadow.getElementById('wac-window');
+    const input = shadow.getElementById('wac-input');
+    const sendBtn = shadow.getElementById('wac-send');
+    const box = shadow.getElementById('wac-messages');
+    const container = document.getElementById("wac-chat-container");
+    const clienteId = container?.dataset.loja;
+    let chatHistory = [];
+
+    // --- Função para formatar mensagens ---
+    function formatMessage(text, whatsappButton) {
+        if (!text) return '<span class="wac-error">Mensagem vazia recebida</span>';
+        text = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" style="color: #22C55E;">$1</a>');
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        text = text.replace(/\n/g, '<br>');
+        if (whatsappButton) {
+            text += `<br><a href="${whatsappButton.url}" target="_blank" class="wac-whatsapp-btn">📱 ${whatsappButton.text}</a>`;
+        }
+        text = text.replace(/\[BOTAO_WHATSAPP:(.*?)\]/g, '<a href="$1" target="_blank" class="wac-whatsapp-btn">📱 Falar no WhatsApp</a>');
+        return text;
+    }
+
+    // --- Função de adicionar mensagem ---
+    function addMsg(text, type, whatsappButton = null) {
+        const div = document.createElement('div');
+        div.className = `wac-msg ${type}`;
+        if (!text || text.trim() === '') text = 'Como posso ajudar? Se precisar de suporte, informe o domínio do seu site.';
+        div.innerHTML = formatMessage(text, whatsappButton);
+        box.appendChild(div);
+        const timestamp = document.createElement('div');
+        timestamp.className = 'wac-timestamp';
+        timestamp.textContent = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+        div.appendChild(timestamp);
+        box.scrollTop = box.scrollHeight;
+    }
+
+    // --- Envio de mensagem ---
+    async function sendMessage() {
+        const msg = input.value.trim();
+        if (!msg) return;
+        if (!clienteId) { addMsg("⚠️ Cliente não identificado.", 'bot'); return; }
+
+        addMsg(msg, 'user');
+        input.value = '';
+        input.disabled = true;
+        sendBtn.disabled = true;
+        sendBtn.textContent = '...';
+
+        try {
+            const res = await fetch('https://wac-ai-backend.suportewrsystems.workers.dev/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: msg, clienteId, history: chatHistory })
+            });
+
+            if (!res.ok) {
+                const errorText = await res.text();
+                throw new Error(`HTTP ${res.status}: ${errorText}`);
+            }
+
+            const data = await res.json();
+            addMsg(data.resposta, 'bot', data.whatsappButton);
+
+            if (data.history) chatHistory = data.history;
+
+        } catch (e) {
+            addMsg(`🔴 Erro de conexão: ${e.message}`, 'bot');
+        } finally {
+            input.disabled = false;
+            sendBtn.disabled = false;
+            sendBtn.textContent = '→';
+            input.focus();
+        }
+    }
+
+    // --- Eventos ---
+    btn.onclick = () => {
+        const isOpen = win.style.display === 'flex';
+        win.style.display = isOpen ? 'none' : 'flex';
+        if (!isOpen && box.children.length === 0) {
+            addMsg("👋 Olá! Sou o assistente da WAC Shield. Como posso ajudar?", 'bot');
+            setTimeout(() => input.focus(), 100);
+        }
+    };
+
+    sendBtn.onclick = sendMessage;
+    input.onkeypress = (e) => { if (e.key === 'Enter') sendMessage(); };
+
+})();
 </script>
 
 </body>
