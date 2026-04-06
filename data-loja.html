@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAC Shield - Gerador de Script</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 24px 32px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #1a1a2e;
+            font-size: 24px;
+        }
+
+        .header h1 span {
+            color: #4e86da;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f2f5;
+        }
+
+        .input-dominio {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: monospace;
+            margin-bottom: 16px;
+        }
+
+        .input-dominio:focus {
+            outline: none;
+            border-color: #4e86da;
+        }
+
+        .btn-gerar {
+            width: 100%;
+            background: #4e86da;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .btn-gerar:hover {
+            background: #3a6db8;
+        }
+
+        .script-box {
+            margin-top: 24px;
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 16px;
+            display: none;
+        }
+
+        .script-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .script-header span {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .btn-copiar {
+            background: #28a745;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .btn-copiar:hover {
+            background: #218838;
+        }
+
+        .script-code {
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #d4d4d4;
+            background: #2d2d2d;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: #aaa;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>WAC <span>Shield</span> | Gerador de Script</h1>
+        </div>
+
+        <div class="card">
+            <h2>📋 Gerar Widget do Chat</h2>
+            <input type="text" id="dominioInput" class="input-dominio" placeholder="Digite seu domínio (ex: meusite.com.br)">
+            <button class="btn-gerar" onclick="gerarScript()">Gerar Script</button>
+            
+            <div id="scriptBox" class="script-box">
+                <div class="script-header">
+                    <span>📋 Código do Widget - Copie e cole no seu site</span>
+                    <button class="btn-copiar" onclick="copiarScript()">Copiar</button>
+                </div>
+                <div id="scriptCode" class="script-code"></div>
+            </div>
+        </div>
+
+        <footer>
+            WAC Shield - Chat Widget para seu site
+        </footer>
+    </div>
+
+    <script>
+        function gerarScript() {
+            const dominio = document.getElementById('dominioInput').value.trim().toLowerCase();
+            
+            if (!dominio) {
+                alert('Digite um domínio válido');
+                return;
+            }
+
+            // Limpar URL
+            let dominioLimpo = dominio.replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/$/, '');
+            
+            const scriptHtml = `<div id="wac-chat-container" data-loja="${dominioLimpo}"></div>\n<script src="https://wacshield.com/wac-widget.js"><\/script>`;
+            
+            document.getElementById('scriptCode').innerHTML = escapeHtml(scriptHtml);
+            document.getElementById('scriptBox').style.display = 'block';
+        }
+
+        async function copiarScript() {
+            const scriptCode = document.getElementById('scriptCode').innerText;
+            
+            try {
+                await navigator.clipboard.writeText(scriptCode);
+                alert('✅ Script copiado para a área de transferência!');
+            } catch (err) {
+                alert('❌ Erro ao copiar. Copie manualmente.');
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>
