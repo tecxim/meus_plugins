@@ -281,11 +281,21 @@
         }
 
         async function copiarScript(script) {
+            // Remove as tags <script> e </script> do texto
+            let textoParaCopiar = script.replace(/<script>/g, '').replace(/<\/script>/g, '');
+            
             try {
-                await navigator.clipboard.writeText(script);
+                await navigator.clipboard.writeText(textoParaCopiar);
                 alert('✅ Script copiado para a área de transferência!');
             } catch (err) {
-                alert('❌ Copie manualmente: ' + script);
+                // Fallback para navegadores antigos
+                const textarea = document.createElement('textarea');
+                textarea.value = textoParaCopiar;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert('✅ Script copiado!');
             }
         }
 
