@@ -267,13 +267,21 @@
                     resultadoItem.innerHTML = `
                         <div class="resultado-header">
                             <span class="resultado-dominio">📁 ${escapeHtml(dominio)}</span>
-                            <button class="btn-copiar" onclick="copiarScript('${escapeHtml(scriptHtml)}')">Copiar</button>
+                            <button class="btn-copiar" data-script="${escapeHtml(scriptHtml)}">Copiar</button>
                         </div>
                         <div class="script-code">${escapeHtml(scriptHtml)}</div>
                     `;
                     resultadosDiv.appendChild(resultadoItem);
                 }
             }
+            
+            // Adicionar event listeners após criar os botões
+            document.querySelectorAll('.btn-copiar').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const script = btn.getAttribute('data-script');
+                    copiarScript(script);
+                });
+            });
             
             if (!temDominio) {
                 resultadosDiv.innerHTML = '<div class="loading">⚠️ Nenhum domínio informado. Preencha pelo menos um domínio.</div>';
