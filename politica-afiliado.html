@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regras do Programa de Afiliados - WAC Shield</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f8faff 0%, #f0f5ff 100%);
+      color: #1a2b5c;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(59, 130, 246, 0.12);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      color: #1a2b5c;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      color: #6c86a3;
+      font-size: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1a2b5c;
+      border-left: 4px solid #3b82f6;
+      padding-left: 15px;
+      margin-bottom: 16px;
+    }
+
+    .rule-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .rule-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid #e9ecef;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .rule-list li:last-child {
+      border-bottom: none;
+    }
+
+    .rule-icon {
+      font-size: 20px;
+      min-width: 28px;
+    }
+
+    .rule-text {
+      flex: 1;
+      line-height: 1.5;
+      color: #334155;
+    }
+
+    .rule-text strong {
+      color: #1a2b5c;
+    }
+
+    .highlight {
+      background: #fef3c7;
+      padding: 16px 20px;
+      border-radius: 16px;
+      margin: 20px 0;
+      border-left: 4px solid #f59e0b;
+    }
+
+    .highlight p {
+      margin: 0;
+      color: #92400e;
+    }
+
+    .footer-note {
+      background: #f8faff;
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .footer-note p {
+      color: #6c86a3;
+      font-size: 14px;
+    }
+
+    .btn-voltar {
+      display: inline-block;
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+      text-decoration: none;
+      padding: 10px 24px;
+      border-radius: 12px;
+      font-weight: 500;
+      margin-top: 20px;
+      transition: all 0.2s;
+    }
+
+    .btn-voltar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 24px;
+      }
+      .header h1 {
+        font-size: 1.5rem;
+      }
+      .rule-list li {
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <div class="header">
+      <div class="badge">📜 Versão 1.0 - Atualizada em Abril/2026</div>
+      <h1>Regras do Programa de Afiliados</h1>
+      <p>WAC Shield Solutions - Programa de Indicação</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">1. Sobre o Programa</div>
+      <ul class="rule-list">
+        <li>
+          <span class="rule-icon">🎯</span>
+          <span class="rule-text">O programa de afiliados da WAC Shield foi criado para recompensar você por indicar nossos produtos e serviços para novos clientes.</span>
+        </li>
+        <li>
+          <span class="rule-icon">💰</span>
+          <span class="rule-text">As comissões são pagas exclusivamente sobre vendas efetivadas de novos clientes, seguindo os valores e condições estabelecidos nesta página.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">2. Conduta Esperada</div>
+      <ul class="rule-list">
+        <li>
+          <span class="rule-icon">✅</span>
+          <span class="rule-text">Divulgar os produtos de forma ética, verdadeira e sem informações enganosas.</span>
+        </li>
+        <li>
+          <span class="rule-icon">✅</span>
+          <span class="rule-text">Respeitar as normas de comunicação e não utilizar práticas de spam ou envio de mensagem em massa não autorizada.</span>
+        </li>
+        <li>
+          <span class="rule-icon">✅</span>
+          <span class="rule-text"><strong>Utilizar o link de indicação conforme gerado pelo sistema</strong>, sem alterações ou manipulação de parâmetros.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">3. Práticas Proibidas</div>
+      <ul class="rule-list">
+        <li>
+          <span class="rule-icon">🚫</span>
+          <span class="rule-text"><strong>Auto-compra:</strong> Comprar o próprio produto utilizando seu próprio link de indicação com o objetivo de gerar comissão.</span>
+        </li>
+        <li>
+          <span class="rule-icon">🚫</span>
+          <span class="rule-text"><strong>Fraude em pagamentos:</strong> Utilizar cartões de teste, realizar estornos indevidos ou qualquer prática que resulte em chargeback.</span>
+        </li>
+        <li>
+          <span class="rule-icon">🚫</span>
+          <span class="rule-text"><strong>Manipulação de tráfego:</strong> Gerar cliques ou conversões falsas por meio de robôs, scripts ou qualquer método automatizado.</span>
+        </li>
+        <li>
+          <span class="rule-icon">🚫</span>
+          <span class="rule-text"><strong>Discurso proibido:</strong> Utilizar linguagem ofensiva, discriminatória ou difamatória em qualquer canal de divulgação.</span>
+        </li>
+        <li>
+          <span class="rule-icon">🚫</span>
+          <span class="rule-text"><strong>Uso indevido da marca:</strong> Registrar domínios, criar sites ou perfis que imitem a identidade visual da WAC Shield sem autorização.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight">
+      <p>⚠️ <strong>Importante:</strong> A identificação de qualquer prática fraudulenta ou violação destas regras resultará na suspensão imediata da conta de afiliado e no cancelamento de todas as comissões pendentes ou já pagas que forem identificadas como irregulares.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">4. Comissões e Pagamentos</div>
+      <ul class="rule-list">
+        <li>
+          <span class="rule-icon">📊</span>
+          <span class="rule-text">As comissões são geradas automaticamente após a confirmação do pagamento pelo Mercado Pago.</span>
+        </li>
+        <li>
+          <span class="rule-icon">⏳</span>
+          <span class="rule-text">O saldo fica disponível para saque após o prazo de segurança de <strong>7 dias</strong> (período de garantia contra estornos).</span>
+        </li>
+        <li>
+          <span class="rule-icon">💳</span>
+          <span class="rule-text">Os saques são processados manualmente e pagos via Pix para a chave cadastrada em sua conta.</span>
+        </li>
+        <li>
+          <span class="rule-icon">📉</span>
+          <span class="rule-text">Se um cliente solicitar reembolso ou estorno, a comissão correspondente será cancelada ou descontada do saldo do afiliado.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">5. Como Receber seus Pagamentos</div>
+      <ul class="rule-list">
+        <li>
+          <span class="rule-icon">🔑</span>
+          <span class="rule-text">Mantenha seus dados sempre atualizados na área do afiliado, incluindo chave Pix, e-mail e telefone.</span>
+        </li>
+        <li>
+          <span class="rule-icon">📅</span>
+          <span class="rule-text">Os pagamentos são realizados mediante solicitação no painel do afiliado, conforme saldo disponível e valor mínimo de saque.</span>
+        </li>
+        <li>
+          <span class="rule-icon">📧</span>
+          <span class="rule-text">Notificações sobre aprovação ou pagamento de comissões são enviadas por e-mail e, se configurado, pelo Telegram.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">6. Alterações nas Regras</div>
+      <ul class="rule-list">
+        <li>
+          <span class="rule-icon">📢</span>
+          <span class="rule-text">A WAC Shield Solutions se reserva o direito de alterar estas regras a qualquer momento para melhor atender os afiliados e a segurança do programa.</span>
+        </li>
+        <li>
+          <span class="rule-icon">🔔</span>
+          <span class="rule-text">Os afiliados serão notificados sobre mudanças significativas por e-mail ou no painel administrativo.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-note">
+      <p>📌 Em caso de dúvidas, entre em contato conosco pelo e-mail: <strong>suporte@wacshield.com</strong></p>
+      <p>© 2025 WAC Shield Solutions - Todos os direitos reservados.</p>
+      <a href="https://wacshield.com/afiliado" class="btn-voltar">← Voltar para Área do Afiliado</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
